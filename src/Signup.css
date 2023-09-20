@@ -1,0 +1,57 @@
+.signup {
+    width: 300px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+}
+
+.signup_input {
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+label {
+    font-size: 14px;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+}
+
+.inputLogin {
+    width: 92.5%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.err_password {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid red;
+    border-radius: 4px;
+    background-color: #ffe6e6;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #b0e0e6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #d5edf0;
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
