@@ -65,6 +65,6 @@ const Signin = () => {
         <button className="buttonlogin" onClick={signinaxios} data-testid="signin-button">로그인</button>
     </div>
       )
-}
+};
 
 export default Signin;
