@@ -26,6 +26,9 @@ git clone https://github.com/krap4/wanted-pre-onboarding-frontend.git
 
 ```
 npm install
+npm install react-router-dom
+npm install axios
+npm install styled-components
 ```
 
 #### 3. 로컬 서버 실행
