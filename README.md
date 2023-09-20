@@ -51,5 +51,5 @@ npm start
 해당 링크에서 다운로드 가능합니다. <br><br />
 https://github.com/krap4/wanted-pre-onboarding-frontend/blob/main/%ED%94%84%EB%A6%AC%EC%98%A8%EB%B3%B4%EB%94%A9%20%EB%8D%B0%EB%AA%A8%20%EC%98%81%EC%83%81.mp4
 
-<img width="100%" src="https://github.com/krap4/wanted-pre-onboarding-frontend/assets/81418633/a9b8bd44-6839-421c-8a67-45105fc979fb"/>
+<img width="80%" src="https://github.com/krap4/wanted-pre-onboarding-frontend/assets/81418633/a9b8bd44-6839-421c-8a67-45105fc979fb"/>
 
