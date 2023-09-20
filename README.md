@@ -48,4 +48,5 @@ npm start
 ## 3. 데모 영상
 > 프로젝트 데모 영상
 
+<img width="80%" src="https://github.com/krap4/wanted-pre-onboarding-frontend/assets/81418633/af654544-96a8-43c9-8328-0f5004996209"/>
 
