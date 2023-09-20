@@ -1,5 +1,7 @@
 import React, { useState , useEffect } from "react";
 import axios from "axios";
+import { useNavigate, useLocation } from "react-router-dom";
+import './Todo.css';
 
 const Todo = () => {
     const [todos, setTodos] = useState([]);
@@ -7,12 +9,23 @@ const Todo = () => {
     const [editMode, setEditMode] = useState(null);
     const [editValue, setEditValue] = useState("");
 
+    const navigate = useNavigate();
+    const location = useLocation();
+
     useEffect(() => {
         const fetchTodos = async () => {
+            const token = localStorage.getItem("access_token");
+
+            // 토큰이 없고 현재 경로가 /todo라면 /signin으로 리디렉션
+            if (!token && location.pathname === "/todo") {
+                navigate("/signin");
+                return; // 이후의 코드를 실행하지 않습니다.
+            }
+
           try {
             const response = await axios.get("https://www.pre-onboarding-selection-task.shop/todos", {
               headers: {
-                Authorization: `Bearer ${localStorage.getItem("access_token")}`
+                Authorization: `Bearer ${token}`
               }
             });
             setTodos(response.data);
@@ -21,7 +34,7 @@ const Todo = () => {
           }
         };
         fetchTodos();
-      }, []);
+      }, [location, navigate]);
     
       const handleAddTodo = async () => {
         try {
