@@ -18,7 +18,7 @@
 해당 저장소를 로컬로 복제합니다.
 
 ```
-git clone [깃허브 저장소 주소]
+git clone https://github.com/krap4/wanted-pre-onboarding-frontend.git
 ```
 
 #### 2. 패키지 설치
