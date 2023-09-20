@@ -9,6 +9,18 @@ const Signup = () => {
     const [passwordinput, setPasswordinput] = useState("");
     const [message, setMessage] = useState("");
 
+    const isValidEmail = (email) => {
+        return email.includes("@");
+    };
+
+    const isValidPassword = (password) => {
+        return password.length >= 8;
+    };
+
+    const isFormValid = () => {
+        return isValidEmail(emailinput) && isValidPassword(passwordinput);
+    };
+
     const registeraxios = () => {
         axios
             .post('https://www.pre-onboarding-selection-task.shop/auth/signup',
@@ -29,13 +41,13 @@ const Signup = () => {
               return navigate("/signin");
             }
           }).catch((err)=>{
-            setMessage(err.response.data.message)
+            setMessage(err.response.data.message);
             console.log(err);
           });
-        };
+    };
 
-        return (
-            <div className="signup">
+    return (
+        <div className="signup">
             <div className="signup_input">
                 <label>Email</label>
                 <br/>
@@ -43,7 +55,10 @@ const Signup = () => {
                     type="text"
                     placeholder="email..."
                     data-testid="email-input"
-                    onChange={(e) => setEmailinput(e.target.value)}
+                    onChange={(e) => {
+                        setEmailinput(e.target.value);
+                        setMessage(""); // Clear any previous messages
+                    }}
                     className={!message ? "inputLogin" : "err_password" }
                 />
             </div>
@@ -54,15 +69,23 @@ const Signup = () => {
                     type="password"
                     placeholder="password..."
                     data-testid="password-input"
-                    onChange={(e) => setPasswordinput(e.target.value)}
+                    onChange={(e) => {
+                        setPasswordinput(e.target.value);
+                        setMessage(""); // Clear any previous messages
+                    }}
                     className={!message ? "inputLogin" : "err_password" }
                 />
                 <p>{message}</p>
             </div>
-            <button onClick={registeraxios} data-testid="signup-button">회원가입</button>
+            <button 
+                onClick={registeraxios} 
+                data-testid="signup-button"
+                disabled={!isFormValid()}
+            >
+                회원가입
+            </button>
         </div>
-        );
-    };
-
+    );
+};
 
 export default Signup;
