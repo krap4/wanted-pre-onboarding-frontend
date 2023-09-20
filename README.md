@@ -45,7 +45,7 @@ npm start
 
 - http://localhost:3000/signup : 회원가입 페이지로 이동
 - http://localhost:3000/signin : 로그인 페이지로 이동
-- http://localhost:3000/todo: 투두리스트 페이지로 이동
+- http://localhost:3000/todo : 투두리스트 페이지로 이동
 
 <br><br />
 ## 3. 데모 영상
