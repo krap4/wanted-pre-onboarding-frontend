@@ -1,17 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useNavigate  } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const Signin = () => {
     const navigate = useNavigate();
+    const location = useLocation();
 
     const [message, setMessage] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
+    useEffect(() => {
+        // Check for the token in local storage
+        const token = localStorage.getItem("access_token");
+
+        if (token && (location.pathname === "/signin" || location.pathname === "/signup")) {
+            navigate("/todo");
+        } else if (!token && location.pathname === "/todo") {
+            navigate("/signin");
+        }
+    }, [location, navigate]);
+
     const signinaxios = (e) => {
         e.preventDefault();
-        // 창이 새로고침되는 것을 막는다. 
         axios
             .post('https://www.pre-onboarding-selection-task.shop/auth/signin',
             {
@@ -24,18 +35,16 @@ const Signin = () => {
                 }
             }
         )
-          .then((response) => {
+        .then((response) => {
             localStorage.setItem("access_token", response.data.access_token);
-            console.log(response);
             if (response.status === 200) {
               navigate("/todo");
             }
-          })
-          .catch((err) => {
-            setMessage(err.response.data.message)
-            console.log(err);
-          });
-      };
+        })
+        .catch((err) => {
+            setMessage(err.response.data.message);
+        });
+    };
 
       return (
         <div className="Signin">
